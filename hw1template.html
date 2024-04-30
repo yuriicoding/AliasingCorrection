@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<title>CMPT 361 HW1 - Yurii Huba</title>
+
+</head> <body>
+
+<h2>CMPT 361 - Homework 1</h2>
+
+<p>Name: <b>Yurii Huba</b></p>
+<p>Student No: <b>301540732</b></p>
+<p>Date: 2024-01-31</p>
+
+<h4>Honor statement:</h4>
+<p>I have not cheated in any way when doing this assignment, I did it on my own. I may have asked questions about the assignment on Coursys, I know that’s totally fine and even encouraged. I also already know that this class is graded on a curve. I realize that if I cheat and by some miracle not get caught, any increase in my grade will in turn shift the curve and result in lower grades for my classmates. Any undeserved extra grade would come at the cost of all others. That’s horrible! I would never do it.</p>
+
+<h4>1: Take two photographs</h4>
+<img src="HP.png" alt="HP" width="300" height="300">
+<img src="LP.png" alt="LP" width="300" height="300">
+
+
+<h4>2: Compute frequency representations</h4>
+<img src="HP-freq.png" alt="HP-freq" width="300" height="300">
+<img src="LP-freq.png" alt="LP-freq" width="300" height="300">
+
+<h4>3: Visualize kernels</h4>
+<img src="gaus-surf.png" alt="gaus-surf" width="300" height="300">
+<img src="dog-surf.png" alt="dog-surf" width="300" height="300">
+<br><br>
+<img src="HP-filt.png" alt="HP-filt" width="300" height="300">
+<img src="HP-filt-freq.png" alt="HP-filt-freq" width="300" height="300">
+<br><br>
+<img src="LP-filt.png" alt="LP-filt" width="300" height="300">
+<img src="LP-filt-freq.png" alt="LP-filt-freq" width="300" height="300">
+<br><br>
+<img src="HP-dogfilt.png" alt="HP-dogfilt" width="300" height="300">
+<img src="HP-dogfilt-freq.png" alt="HP-dogfilt-freq" width="300" height="300">
+<br><br>
+<img src="LP-dogfilt.png" alt="LP-dogfilt" width="300" height="300">
+<img src="LP-dogfilt-freq.png" alt="LP-dogfilt-freq" width="300" height="300">
+
+<h4>4: Anti-aliasing</h4>
+<img src="HP-sub2.png" alt="HP-sub2" width="300" height="300">
+<img src="HP-sub2-freq.png" alt="HP-sub2-freq" width="300" height="300">
+<br><br>
+<img src="LP-sub2.png" alt="LP-sub2" width="300" height="300">
+<img src="LP-sub2-freq.png" alt="LP-sub2-freq" width="300" height="300">
+<p>Half sized subsamples:
+<br>Spacial domain:<br>
+On the high-frequency image (room), there is an observable aliasing on the window blinds located in the back of the picture. There appears a noisy repetitive pattern of black and white strips instead of the real shape of window blinders. The aliasing is slight when I use a half-sized subsample (to see it clearly, the region of window blinds has to be enlarged), but using the quarter-sized subsample allows me to see it clearly at the current scale. On the low-frequency image, I can't find any clear aliasing happening in the spatial domain for a half-sized subsample. 
+<br>Frequency domain:<br>
+Comparing the frequency domain of the original high-frequency image and its half-sized sample, I notice some missing high-frequency signals (the pattern of the frequency domain representation is different because some high frequencies are corrupted and shown black), which is a sign of aliasing. On the other hand, the patterns of the frequency domains of the original low-frequency image and its half-sized subsample are quite similar, which indicates that no aliasing happened. 
+</p>
+
+<img src="HP-sub4.png" alt="HP-sub4" width="300" height="300">
+<img src="HP-sub4-freq.png" alt="HP-sub4-freq" width="300" height="300">
+<br><br>
+<img src="LP-sub4.png" alt="LP-sub4" width="300" height="300">
+<img src="LP-sub4-freq.png" alt="LP-sub4-freq" width="300" height="300">
+<p>Quarter sized subsample:
+    <br>Spatial domain:<br>
+    As mentioned above, aliasing on the window blinders in the back of the high-frequency picture becomes obvious (I can observe large black and white stripes that have nothing similar to the original image).
+    On the low-frequency quarter-sized sample, I can't find any aliasing happening.
+    <br>Frequency domain:<br>
+    The pattern of the quarter-sized subsample of the frequency domain of high-frequency image becomes even more different from the original image than before
+    (a lot of black regions in place of lost high-frequency signals).
+    The shape of the quarter-sized subsample of the frequency domain of the low-frequency image is still mostly similar to the frequency domain of the original image.
+</p>
+
+<img src="HP-sub2-aa.png" alt="HP-sub2-aa" width="300" height="300">
+<img src="HP-sub2-aa-freq.png" alt="HP-sub2-aa-freq" width="300" height="300">
+<br><br>
+<img src="HP-sub4-aa.png" alt="HP-sub4-aa" width="300" height="300">
+<img src="HP-sub4-aa-freq.png" alt="HP-sub4-aa-freq" width="300" height="300">
+<p>
+    In both quarter-sized subsample and half-sized subsample, when anti-aliasing is used, the frequency domain becomes more centered, which handles the problem of aliasing. Now all high frequencies are filtered out by Gaussian filter, instead of being corrupted and misrepresented (as in previous samples when some of the high frequencies remained while others collided and disappeared, leading to strange patterns which are not present in the original image).
+</p>
+
+<h4>5: Canny edge detection thresholding</h4>
+
+<img src="HP-canny-optimal.png" alt="HP-canny-optimal" width="500" height="500">
+<br><br>
+<img src=" HP-canny-lowlow.png" alt=" HP-canny-lowlow" width="300" height="300">
+<img src=" HP-canny-highlow.png" alt=" HP-canny-highlow" width="300" height="300">
+<br><br>
+<img src=" HP-canny-lowhigh.png" alt=" HP-canny-lowhigh" width="300" height="300">
+<img src=" HP-canny-highhigh.png" alt=" HP-canny-highhigh" width="300" height="300">
+<p>
+    The optimal thresholds for the high-frequency image are 0.01 and 0.15.<br>
+    Left top corner: Decreasing the lower threshold to 0.0001 doesn't change the edges much because there isn't
+    a lot of noise on the image (so I could choose a number below 0.01).<br>
+    Right top corner: Increasing the lower threshold to 0.09 removes some edges from the opened box on the left side of the picture.<br>
+    Left bottom corner: Decreasing the higher threshold to 0.1 adds some unnecessary edges (like the big vertical edge on the top cupboard on the left side of the picture).<br>
+    Right bottom corner: Increasing the higher threshold to 0.2 removes some edges from the opened box on the left side of the picture.<br>
+</p>
+
+<img src="LP-canny-optimal.png" alt="LP-canny-optimal" width="500" height="500">
+<br><br>
+<img src=" LP-canny-lowlow.png" alt=" LP-canny-lowlow" width="300" height="300">
+<img src=" LP-canny-highlow.png" alt=" LP-canny-highlow" width="300" height="300">
+<br><br>
+<img src=" LP-canny-lowhigh.png" alt=" LP-canny-lowhigh" width="300" height="300">
+<img src=" LP-canny-highhigh.png" alt=" LP-canny-highhigh" width="300" height="300">
+<p>
+    The optimal thresholds for the high-frequency image are 0.07 and 0.2.<br>
+    Left top corner: Decreasing the lower threshold to 0.01 adds a lot of noisy edges on the road, making the image too vague.<br>
+    Right top corner: Increasing the lower threshold to 0.15 removes some necessary edges from the bottom part of the clouds<br>
+    Left bottom corner: Decreasing the higher threshold to 0.1 adds a lot of noisy edges on the road, making the picture unclear.<br>
+    Right bottom corner: Increasing the higher threshold to 0.5 removes the most necessary edges over the image.<br>
+</p>
+
+
+</body> </html>
